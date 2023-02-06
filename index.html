@@ -1,0 +1,80 @@
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="stylesheet" href="style.css" />
+            <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+            <title>ATM</title>
+        </head>
+        <body>
+                <div class="loader" id="loaggin">
+                    <div class="loader__bar"></div>
+                    <div class="loader__bar"></div>
+                    <div class="loader__bar"></div>
+                    <div class="loader__bar"></div>
+                    <div class="loader__bar"></div>
+                    <div class="loader__ball"></div>
+                </div>
+            <section class="CajeroAutomatico">
+                <h2>Bienvenido a la Banca Virtual</h2>
+                <section id="bienvenida" class="entrada">
+                    <div class="Usuarios">
+                        <div class="ClaveIngreso">
+                            <input type="text" id="UsuarioIngresada" placeholder="Ingresa tu usuario" />
+                        </div>
+                        <div class="ClaveIngreso">
+                            <input type="password" id="claveIngresada" placeholder="Ingresa tu clave" />
+                        </div>
+                    </div>
+                    <span class="mensajeError" id="errorClave"></span>
+                    <a href="#" class="btn pepe" onclick="IngresoUsuarios()">Ingresar</a>
+                </section>
+                <!-- Ingreso al cajero de los usuarios -->
+                <section id="opcionesCajero" class="card">
+                    <h3>¿Qué deseas hacer hoy?</h3>
+                    <div class="botonesOpciones">
+                        <a href="#" class="btn" onclick="verSaldo()">Ver saldo</a>
+                        <a href="#" class="btn " onclick="ingresarSaldo ()">Ingresar saldo</a>
+                        <a href="#" class="btn" onclick="retirarSaldo ()">Retirar saldo</a>
+                    </div>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
+                </section>
+                <!--VER SALDO-->
+                <section id="verSaldo" class="card">
+                    <h3>Tu saldo actual es:</h3>
+                    <span id="saldoCliente"></span>
+                    <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowSaldo" onclick="backArrowSaldo()" alt="">
+                </section>
+                <!-- OPCIONES CAJERO // AGREGAR SALDO -->
+                <section id="agregarSaldo" class="card">
+                    <h2>¿Cuánto dineo quieres ingresar?</h2>
+                    <div class="saldoDiferente">
+                        <input type="number" id="saldoIngresado" placeholder="Ingresa un monto diferente" />
+                        <a href="#" class="btn" onclick="inputSaldo ()">Ingresar saldo diferente</a>
+                    </div>
+                    <span class="mensajeError" id="alertaCupo"></span>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
+                </section>
+                <!-- OPCIONES CAJERO // RETIRAR SALDO -->
+                <section id="retirarSaldo" class="card">
+                    <h3>¿Cuánto dineo quieres retirar?</h3>
+                    <div class="saldoDiferente">
+                        <input type="number" id="saldoIngresadoRetirar" placeholder="Ingresa un monto diferente" />
+                        <a href="#" class="btn" onclick="inputSaldoRetiro ()">Ingresar saldo diferente</a>
+                    </div>
+                    <span class="mensajeError" id="alertaCupoRetiro"></span>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
+                </section>
+                <!-- OPCIONES CAJERO // VER SALDO INGRESADO  Y TOTAL-->
+                <section id="saldoTotal" class="card">
+                    <h2>Acabas de ingresar:</h2>
+                    <span id="saldoIngresadoCliente">$</span>
+                    <h3>El total en tu cuenta es de:</h3>
+                    <span id="saldoTotalCliente"></span>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
+            </section>
+            <script src="./scripts.js"></script>
+        </body>
+    </html>
