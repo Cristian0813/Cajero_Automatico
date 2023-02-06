@@ -18,55 +18,39 @@ let usuarioEncontrado = false;
             break;
         }
     }if (!usuarioEncontrado) {
-        document.getElementById("errorClave").innerHTML = "Por favor ingrese un usuario y clave válidos";
+        document.getElementById("ErrorMensaje").innerHTML = "Por favor ingrese un usuario y clave válidos";
     } else {
         // Si los datos de usuario y clave son correctos, puedes mostrar el siguiente panel o hacer otra acción.
         document.getElementById("bienvenida").style.display = "none";
-        document.getElementById("opcionesCajero").style.display = "block";
+        document.getElementById("CajeroSaldo").style.display = "block";
     }
 }
-// Oculta la pantalla de selección de usuarios y mostrar la pantalla de clave
-function mali () {
+//OCULTA LA PANTALLA DE INCIO Y SELECIONA LA CUENTA DE USUARIO
+function MaliUsuario () {
     usuarioActual = "Mali";
     saldoActual = Malisaldo;
     passwordActual = 1234;
     document.getElementById("loginUsuario").style.display = "none";
     document.getElementById("claveUsuario").style.display = "inherit";
 }
-function gera () {
+function GeraUsuario () {
     usuarioActual = "Gera";
     saldoActual = Gerasaldo;
     passwordActual = 5678;
     document.getElementById("loginUsuario").style.display = "none";
     document.getElementById("claveUsuario").style.display = "inherit";
 }
-function gera () {
+function Maui () {
     usuarioActual = "Maui";
     saldoActual = Gerasaldo;
     passwordActual = 9999;
     document.getElementById("loginUsuario").style.display = "none";
     document.getElementById("claveUsuario").style.display = "inherit";
 }
-// Con el valor del input de pass, se hace la validación. Si está bien, oculta la pantalla de ingreso de clave y muestra las opciones del cajero.
-function checkContraseña (inputContraseña) {
-    let contraseñaFinal = parseInt (inputContraseña);
-    for (let i = 0; i < cuentas.length; i++){
-        if (usuarioActual == cuentas[i].nombre && contraseñaFinal == cuentas[i].password) {
-            document.getElementById("claveUsuario").style.display = "none";
-            document.getElementById("opcionesCajero").style.display = "inherit";
-            break;
-        } else {
-            const resultado = document.createTextNode (`La contraseña está errada. Inténtalo de nuevo`);
-            const numeroFinal = document.getElementById("errorClave");
-            numeroFinal.innerHTML = "";
-            numeroFinal.appendChild (resultado);
-        }
-    }
-}
 // Ver Saldo
-function verSaldo () {
-    document.getElementById("opcionesCajero").style.display = "none";
-    document.getElementById("verSaldo").style.display = "inherit";
+function SaldoExistente() {
+    document.getElementById("CajeroSaldo").style.display = "none";
+    document.getElementById("SaldoActual").style.display = "inherit";
 
     const saldoUsuario = document.createTextNode (`$${saldoActual}`);
     const mensajeSaldo = document.getElementById ("saldoCliente");
@@ -76,7 +60,7 @@ function verSaldo () {
 
 // Ingresar Saldo
 function ingresarSaldo () {
-    document.getElementById("opcionesCajero").style.display = "none";
+    document.getElementById("CajeroSaldo").style.display = "none";
     document.getElementById("agregarSaldo").style.display = "inherit";
 }
 
@@ -116,7 +100,7 @@ function mostrarTransacción (saldoIngresado, saldoActual) {
 
 // Retirar Saldo
 function retirarSaldo () {
-    document.getElementById("opcionesCajero").style.display = "none";
+    document.getElementById("CajeroSaldo").style.display = "none";
     document.getElementById("retirarSaldo").style.display = "inherit";
 }
 
@@ -168,28 +152,28 @@ function backArrowClave () {
 }
 
 function backArrowOpciones () {
-    document.getElementById("opcionesCajero").style.display = "none";
+    document.getElementById("CajeroSaldo").style.display = "none";
     document.getElementById("claveUsuario").style.display = "inherit";
 }
 
 function backArrowSaldo () {
     document.getElementById("verSaldo").style.display = "none";
-    document.getElementById("opcionesCajero").style.display = "inherit";
+    document.getElementById("CajeroSaldo").style.display = "inherit";
 }
 
 function backArrowAgregar () {
     document.getElementById("agregarSaldo").style.display = "none";
-    document.getElementById("opcionesCajero").style.display = "inherit";
+    document.getElementById("CajeroSaldo").style.display = "inherit";
 }
 
 function backArrowRetirar () {
     document.getElementById("retirarSaldo").style.display = "none";
-    document.getElementById("opcionesCajero").style.display = "inherit";
+    document.getElementById("CajeroSaldo").style.display = "inherit";
 }
 
 function backArrowVerSaldo () {
     document.getElementById("saldoTotal").style.display = "none";
-    document.getElementById("opcionesCajero").style.display = "inherit";
+    document.getElementById("CajeroSaldo").style.display = "inherit";
 }
 
 // Funcion para ocultar la pantalla principal y mostar los usuarios.

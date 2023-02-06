@@ -28,11 +28,11 @@
                             <input type="password" id="claveIngresada" placeholder="Ingresa tu clave" />
                         </div>
                     </div>
-                    <span class="mensajeError" id="errorClave"></span>
+                    <span class="mensajeError" id="ErrorMensaje"></span>
                     <a href="#" class="btn pepe" onclick="IngresoUsuarios()">Ingresar</a>
                 </section>
                 <!-- Ingreso al cajero de los usuarios -->
-                <section id="opcionesCajero" class="card">
+                <section id="opcionesCajero">
                     <h3>¿Qué deseas hacer hoy?</h3>
                     <div class="botonesOpciones">
                         <a href="#" class="btn" onclick="verSaldo()">Ver saldo</a>
@@ -41,14 +41,13 @@
                     </div>
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
                 </section>
-                <!--VER SALDO-->
-                <section id="verSaldo" class="card">
+                <!--VER SALDO -->
+                <section id="verSaldo">
                     <h3>Tu saldo actual es:</h3>
                     <span id="saldoCliente"></span>
-                    <img src="./assets/arrow_blanca.png" class="arrowButton" id="arrowSaldo" onclick="backArrowSaldo()" alt="">
                 </section>
                 <!-- OPCIONES CAJERO // AGREGAR SALDO -->
-                <section id="agregarSaldo" class="card">
+                <section id="agregarSaldo">
                     <h2>¿Cuánto dineo quieres ingresar?</h2>
                     <div class="saldoDiferente">
                         <input type="number" id="saldoIngresado" placeholder="Ingresa un monto diferente" />
@@ -58,7 +57,7 @@
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
                 </section>
                 <!-- OPCIONES CAJERO // RETIRAR SALDO -->
-                <section id="retirarSaldo" class="card">
+                <section id="retirarSaldo">
                     <h3>¿Cuánto dineo quieres retirar?</h3>
                     <div class="saldoDiferente">
                         <input type="number" id="saldoIngresadoRetirar" placeholder="Ingresa un monto diferente" />
@@ -68,7 +67,7 @@
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
                 </section>
                 <!-- OPCIONES CAJERO // VER SALDO INGRESADO  Y TOTAL-->
-                <section id="saldoTotal" class="card">
+                <section id="saldoTotal">
                     <h2>Acabas de ingresar:</h2>
                     <span id="saldoIngresadoCliente">$</span>
                     <h3>El total en tu cuenta es de:</h3>
