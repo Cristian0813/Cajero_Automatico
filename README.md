@@ -2,7 +2,7 @@
 <h4>Te comento que se realizo una App sobre un cajero automatico, donde muestra el saldo de los usuarios que están ingrsados, tambien puede agrear mas saldo y retiralos</h4>
 <br>
 <h2> Cajero Autómatico</h2>
-<a href="https://cristian0813.github.io/Cajero-automatico/"><img src="./assets/CAjeroAutomatico.jpg" width="auto" align="center">
+<a href="https://cristian0813.github.io/Cajero-automatico/"><img src="./assets/CajeroAutomatico.jpg" width="auto" align="center">
 <br>
 <br>
 <h3 align="left">Languages de programación:</h3>
