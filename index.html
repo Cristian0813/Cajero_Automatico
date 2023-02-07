@@ -37,7 +37,7 @@
                     <div class="botonesOpciones">
                         <a href="#" class="btn" onclick="VerSaldo()">Ver saldo</a>
                         <a href="#" class="btn " onclick="IngreseSaldo()">Ingresar saldo</a>
-                        <a href="#" class="btn" onclick="retirarSaldo ()">Retirar saldo</a>
+                        <a href="#" class="btn" onclick="RetirarSaldo ()">Retirar saldo</a>
                     </div>
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
                 </section>
@@ -53,29 +53,21 @@
                     <div class="saldoDiferente">
                         <input type="number" id="AgregarSaldo" placeholder="Ingresa el monto"/>
                         <span id="MontoAgregado"></span>
-                        <a href="#" class="btn" onclick="SaldoInput()">Ingresar saldo diferente</a>
+                        <a href="#" class="btn" onclick="SaldoInput()">Ingresar valor</a>
                     </div>
                     <span class="mensajeError" id="SaldoMuyAlto"></span>
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="Cancelar()">Cancelar</a>
                 </section>
-                <!-- OPCIONES CAJERO // RETIRAR SALDO -->
+                <!--SALDO RETIRADO-->
                 <section id="SaldoRetirado">
                     <h3>¿Cuánto dineo quieres retirar?</h3>
                     <div class="saldoDiferente">
-                        <input type="number" id="saldoIngresadoRetirar" placeholder="Ingresa un monto diferente" />
-                        <a href="#" class="btn" onclick="inputSaldoRetiro ()">Ingresar saldo diferente</a>
+                        <input type="number" id="NegativoSaldo" placeholder="Ingresa un monto diferente" />
+                        <span id="SaldoNegativo"></span>
+                        <a href="#" class="btn" onclick="SaldoRetiro()">Ingresar valor</a>
                     </div>
                     <span class="mensajeError" id="alertaCupoRetiro"></span>
-                    <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
-                </section>
-                <!-- VER SALDO INGRESADO  Y TOTAL-->
-                <!---->
-                <section id="SaldoTotal">
-                    <h3>Acabas de ingresar:</h3>
-                    <span id="saldoIngresadoCliente">$</span>
-                    <h3>El total en tu cuenta es de:</h3>
-                    <span id="saldoTotalCliente"></span>
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
                 </section>
             </section>

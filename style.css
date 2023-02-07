@@ -139,8 +139,7 @@ input[type=number]::-webkit-outer-spin-button {
 #CajeroSaldo, 
 #SaldoActual, 
 #SaldoAgregado,
-#SaldoRetirado,
-#SaldoTotal{
+#SaldoRetirado{
     display: none;
 }
 #saldoCliente, #saldoIngresadoCliente, #saldoTotalCliente {

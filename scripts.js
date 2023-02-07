@@ -70,6 +70,36 @@ function SaldoInput() {
     checkSaldo(ingresoSaldo);
     ingresoSaldo.innerHTML ="";
 }
+//RETIRAR SALDO
+function RetirarSaldo () {
+    document.getElementById("CajeroSaldo").style.display = "none";
+    document.getElementById("SaldoRetirado").style.display = "inherit";
+}
+function checkSaldo(RetiroSaldo, SaldoActual) {
+    const usuarioIngresado = document.getElementById("UsuarioIngresada").value;
+    const mensajeUsuario = document.getElementById("SaldoMuyAlto");
+    for (var i = 0; i < cuentas.length; i++) {
+        if (cuentas[i].nombre === usuarioIngresado) {
+            saldoUsuario = cuentas[i].saldo;
+            break;
+        }
+    }
+    if (RetiroSaldo < 10) {
+        mensajeUsuario.innerHTML = "El saldo ingresado debe ser mayor o igual a $10.";
+    } else if ((RetiroSaldo - SaldoActual) > 990) {
+        mensajeUsuario.innerHTML = "Sobrepasa el monto permitido por el banco.";
+    } else if ((RetiroSaldo - SaldoActual) < 10) {
+        mensajeUsuario.innerHTML = "El saldo actualizado debe ser mayor o igual a $10.";
+    } else {
+        const mensajeConfirmacion = "El saldo ha sido actualizado extiosamente. "+ (cuentas[i].nombre) +" tu saldo actual es "+  (cuentas[i].saldo -= RetiroSaldo);
+        document.getElementById("SaldoNegativo").innerHTML = mensajeConfirmacion;
+    }
+}
+function SaldoRetiro() {
+    const ingresoSaldo = parseInt(document.getElementById("NegativoSaldo").value);
+    checkSaldo(ingresoSaldo);
+    ingresoSaldo.innerHTML ="";
+}
 
 //FUNCIÓN PARA REGRESAR AL MENÚ ANTERIOR
 function Retoceder() {
@@ -83,44 +113,8 @@ function Cancelar() {
     document.getElementById("CajeroSaldo").style.display = "inherit";
     document.getElementById("AgregarSaldo").value = "";
 }
-
-// Retirar Saldo
-function retirarSaldo () {
-    document.getElementById("CajeroSaldo").style.display = "none";
-    document.getElementById("retirarSaldo").style.display = "inherit";
-}
-
 // Recibe el saldo ingresado por el cliente y lo envía a la función para revisar si sobrepasa el monto. 
 function inputSaldoRetiro () {
-    const saldoIngresado = parseInt(document.getElementById ("saldoIngresadoRetirar").value);
-    checkSaldoRetirar (saldoIngresado);
+    const SaldoCero = parseInt(document.getElementById ("saldoIngresadoRetirar").value);
+    checkSaldoRetirar (SaldoCero);
 }
-
-// Valida el monto ingresado.
-/*function checkSaldoRetirar (saldoIngresado) {
-    console.log (saldoIngresado);
-    console.log (saldoActual);
-    if ((saldoActual - saldoIngresado) < 10){
-        const mensajeError = document.createTextNode ("Debes dejar mínimo $10 en tu cuenta. Ingresa un valor inferior.")
-        const mensajeUsuario = document.getElementById ("alertaCupoRetiro");
-        mensajeUsuario.innerHTML = "";
-        mensajeUsuario.appendChild (mensajeError);
-    } else {
-        mostrarTransacciónRetiro (saldoIngresado, saldoActual);
-    }
-}
-
-function mostrarTransacciónRetiro (saldoIngresado, saldoActual) {
-    document.getElementById("retirarSaldo").style.display = "none";
-    document.getElementById("SaldoTotal").style.display = "inherit";
-
-    const dineroIngresado = document.createTextNode (`$${saldoIngresado}`);
-    const mostrarDinero = document.getElementById("saldoIngresadoCliente");
-    mostrarDinero.innerHTML = "";
-    mostrarDinero.appendChild (dineroIngresado);
-
-    const dinerototal = document.createTextNode (`$${(saldoActual - saldoIngresado)}`);
-    const mostrarTotal = document.getElementById ("saldoTotalCliente");
-    mostrarTotal.innerHTML = "";
-    mostrarTotal.appendChild (dinerototal);
-}*/
