@@ -25,7 +25,7 @@
                             <input type="text" id="UsuarioIngresada" placeholder="Ingresa tu usuario" />
                         </div>
                         <div class="ClaveIngreso">
-                            <input type="password" id="claveIngresada" placeholder="Ingresa tu clave" />
+                            <input type="password" id="ClaveIngresada" placeholder="Ingresa tu clave" />
                         </div>
                     </div>
                     <span class="mensajeError" id="ErrorMensaje"></span>
@@ -35,8 +35,8 @@
                 <section id="CajeroSaldo">
                     <h3>¿Qué deseas hacer hoy?</h3>
                     <div class="botonesOpciones">
-                        <a href="#" class="btn" onclick="verSaldo()">Ver saldo</a>
-                        <a href="#" class="btn " onclick="ingresarSaldo ()">Ingresar saldo</a>
+                        <a href="#" class="btn" onclick="VerSaldo()">Ver saldo</a>
+                        <a href="#" class="btn " onclick="IngreseSaldo()">Ingresar saldo</a>
                         <a href="#" class="btn" onclick="retirarSaldo ()">Retirar saldo</a>
                     </div>
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
@@ -48,15 +48,16 @@
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
                 </section>
                 <!--AGREGAR SALDO-->
-                <section id="SaldoAgregado">
-                    <h2>¿Cuánto dineo quieres ingresar?</h2>
+                <section class="SectionAgregar" id="SaldoAgregado">
+                    <h3>¿Cuánto dinero quieres ingresar?</h3>
                     <div class="saldoDiferente">
-                        <input type="number" id="AgregarSaldo" placeholder="Ingresa un monto diferente" />
-                        <a href="#" class="btn" onclick="inputSaldo ()">Ingresar saldo diferente</a>
-                        <a href="#" class="btn atras" id="arrowOpciones" onclick="Cancelar()">Cancelar</a>
+                        <input type="number" id="AgregarSaldo" placeholder="Ingresa el monto"/>
+                        <span id="MontoAgregado"></span>
+                        <a href="#" class="btn" onclick="SaldoInput()">Ingresar saldo diferente</a>
                     </div>
-                    <span class="mensajeError" id="alertaCupo"></span>
+                    <span class="mensajeError" id="SaldoMuyAlto"></span>
                     <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="Cancelar()">Cancelar</a>
                 </section>
                 <!-- OPCIONES CAJERO // RETIRAR SALDO -->
                 <section id="SaldoRetirado">

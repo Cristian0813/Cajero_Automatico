@@ -25,7 +25,7 @@ h3 {
     text-align:start;
     font-size: 20px;
 }
-/*Section cajeroAutomatio y sus DIVS*/
+/*ESTILO DE SECCIONES Y DIVS*/
 .CajeroAutomatico {
     display: flex;
     flex-direction: column;
@@ -39,10 +39,10 @@ h3 {
     border: 1px solid rgba(255,255,255,0.325);
     box-shadow: 0 0 24px rgba(0,0,0,.8) ;
 }
+/*ETILO DE BOTONES*/
 a.pepe{
     margin: 50px;
 }
-/* --- BUTTON --- */
 .btn:link, .btn:visited {
     margin:20px;
     text-align: center;
@@ -94,6 +94,7 @@ a.pepe{
 }
 /*--- INPUT DE LOS RESULTADOS--- */
 input {
+    border-color: #000;
     border: none;
     height: 45px;
     width: 250px;
@@ -116,37 +117,7 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none; 
     margin: 0; 
 }
-/* --- SECCIÓNES INTERNAS --- */
-
-.botonesOpciones {
-    display: flex;
-    flex-direction: row;
-}
-
-.saldoDiferente {
-    display: flex;
-    align-self: center;
-}
-
-.clave {
-    display: flex;
-    flex-direction: row;
-}
-
-.claveVertical {
-    display: flex;
-    flex-direction: column;
-}
-
-#loginUsuario,
-#CajeroSaldo, 
-#SaldoActual, 
-#SaldoAgregado, 
-#SaldoRetirado,
-#SaldoTotal{
-    display: none;
-}
-
+/*MENSJA DE ALERTA*/
 .mensajeError {
     margin-bottom: 10px;
     font-size: 10px;
@@ -154,6 +125,23 @@ input[type=number]::-webkit-outer-spin-button {
     color: red;
     width: 250px;
     text-align: center;
+}
+/*ESTILO A LOS DIVS*/
+.SectionAgregar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*ESTILO PARA OCULTAR LAS SECCIONES Y LOS INPUTS*/
+#loginUsuario,
+#CajeroSaldo, 
+#SaldoActual, 
+#SaldoAgregado,
+#SaldoRetirado,
+#SaldoTotal{
+    display: none;
 }
 #saldoCliente, #saldoIngresadoCliente, #saldoTotalCliente {
     font-size: 22px;

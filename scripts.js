@@ -1,16 +1,14 @@
 //Variables para ingreso a loaggin
-/*let Malisaldo = 200;
-let Gerasaldo = 290;
-let Mauisaldo = 60;*/
 var cuentas = [
-    {nombre: "Mali", saldo:Malisaldo = 200, password: 1234},
-    {nombre: "Gera", saldo:Gerasaldo = 290, password: 5678},
-    {nombre: "Maui", saldo:Mauisaldo = 60, password: 9999}
+    {nombre: "Mali", saldo: 200, password: 1234},
+    {nombre: "Gera", saldo: 290, password: 5678},
+    {nombre: "Maui", saldo: 60, password: 9999}
 ];
+var SaldoActual = 0;
 
 function IngresoUsuarios() {
 const usuarioIngresado = document.getElementById("UsuarioIngresada").value;
-const claveIngresada = document.getElementById("claveIngresada").value;
+const claveIngresada = document.getElementById("ClaveIngresada").value;
 let usuarioEncontrado = false;
     for (let i = 0; i < cuentas.length; i++) {
         if (cuentas[i].nombre === usuarioIngresado && cuentas[i].password == claveIngresada) {
@@ -25,7 +23,7 @@ let usuarioEncontrado = false;
     }
 }
 //VER EL SALDO QUE TIENE ACTUAL
-function verSaldo(){
+function VerSaldo(){
     document.getElementById("SaldoActual").style.display = "inherit";
     document.getElementById("CajeroSaldo").style.display = "none";
     let saldoUsuario = 0;
@@ -41,45 +39,81 @@ function verSaldo(){
     mensajeSaldo.innerHTML = ""; 
     mensajeSaldo.appendChild(document.createTextNode(`$${saldoUsuario}`));
 }
-// Ingresar Saldo
-function ingresarSaldo () {
+//FUNCION PARA AGREGAR EL SALDO Y VALIDAR EL SALOD ACTUALIZADO
+function IngreseSaldo() {
+    document.getElementById("SaldoAgregado").style.display = "inherit";
     document.getElementById("CajeroSaldo").style.display = "none";
-    document.getElementById("agregarSaldo").style.display = "inherit";
 }
-
-// Recibe el saldo ingresado por el cliente y lo envía a la función para revisar si sobrepasa el monto. 
-function inputSaldo () {
-    const saldoIngresado = parseInt(document.getElementById ("saldoIngresado").value);
-    checkSaldo (saldoIngresado);
-}
-
-// Valida el monto ingresado.
-function checkSaldo (saldoIngresado) {
-    if ((saldoIngresado + saldoActual) > 990){
-        const mensajeError = document.createTextNode ("Sobrepasa el monto permitido por el banco. Ingresa un valor inferior.")
-        const mensajeUsuario = document.getElementById ("alertaCupo");
-        mensajeUsuario.innerHTML = "";
-        mensajeUsuario.appendChild (mensajeError);
-    } else {
-        mostrarTransacción (saldoIngresado, saldoActual);
+//RECIBE EL SALDO QUE EL CLIENTE QUIERE AGREGAR 
+function checkSaldo(IngresoSaldo, SaldoActual) {
+    for (var i = 0; i < cuentas.length; i++) {
+      if (cuentas[i].nombre === "Mali") {
+        SaldoActual = cuentas[i].saldo;
+        break;
+      }else if (cuentas[i].nombre === "Gera") {
+        SaldoActual = cuentas[i].saldo;
+        break;
+      }else if (cuentas[i].nombre === "Muai") {
+        SaldoActual = cuentas[i].saldo;
+        break;
+      }
     }
-}
+    if (IngresoSaldo < 10) {
+      const mensajeError = document.createTextNode("El saldo ingresado debe ser mayor o igual a $10.");
+      const MensajeUsuario = document.getElementById("SaldoMuyAlto");
+      MensajeUsuario.innerHTML = "";
+      MensajeUsuario.appendChild(mensajeError);
+    } else if ((IngresoSaldo + SaldoActual) > 990) {
+      const mensajeError = document.createTextNode("Sobrepasa el monto permitido por el banco. Ingresa un valor inferior.");
+      const MensajeUsuario = document.getElementById("SaldoMuyAlto");
+      MensajeUsuario.innerHTML = "";
+      MensajeUsuario.appendChild(mensajeError);
+    } else if ((IngresoSaldo + SaldoActual) < 10) {
+      const mensajeError = document.createTextNode("El saldo actualizado debe ser mayor o igual a $10.");
+      const MensajeUsuario = document.getElementById("MontoAgregado");
+      MensajeUsuario.innerHTML = "";
+      MensajeUsuario.appendChild(mensajeError);
+    } else {
+      const MensajeConfirmacion = document.createTextNode("El saldo ha sido actualizado con éxito. Tu saldo actual es " + (IngresoSaldo + SaldoActual));
+      const MensajeUsuario = document.getElementById("MontoAgregado");
+      MensajeUsuario.innerHTML = "";
+      MensajeUsuario.appendChild(MensajeConfirmacion);
+      cuentas[i].saldo += IngresoSaldo;
+    }
+  }
+  
+  function SaldoInput() {
+    const IngresoSaldo = parseInt(document.getElementById("AgregarSaldo").value);
+    checkSaldo(IngresoSaldo, SaldoActual);
+  }
 
-// Muestra la pantalla con el saldo del cliente
-function mostrarTransacción (saldoIngresado, saldoActual) {
-    document.getElementById("agregarSaldo").style.display = "none";
-    document.getElementById("SaldoTotal").style.display = "inherit";
 
-    const dineroIngresado = document.createTextNode (`$${saldoIngresado}`);
-    const mostrarDinero = document.getElementById("saldoIngresadoCliente");
-    mostrarDinero.innerHTML = "";
-    mostrarDinero.appendChild (dineroIngresado);
 
-    const dinerototal = document.createTextNode (`$${(saldoIngresado + saldoActual)}`);
-    const mostrarTotal = document.getElementById ("saldoTotalCliente");
-    mostrarTotal.innerHTML = "";
-    mostrarTotal.appendChild (dinerototal);
-}
+/*function SaldoInput(IngresoSaldo) {
+const IngresoSaldo = parseInt(document.getElementById("AgregarSaldo").value);
+    if (IngresoSaldo < 10) {
+      const mensajeError = document.createTextNode("El saldo ingresado debe ser mayor o igual a $10.");
+      const MensajeUsuario = document.getElementById("SaldoMuyAlto");
+      mensajeUsuario.innerHTML = "";
+      mensajeUsuario.appendChild(mensajeError);
+    } else if ((IngresoSaldo + SaldoActual) > 990) {
+      const mensajeError = document.createTextNode("Sobrepasa el monto permitido por el banco. Ingresa un valor inferior.");
+      const mensajeUsuario = document.getElementById("SaldoMuyAlto");
+      mensajeUsuario.innerHTML = "";
+      mensajeUsuario.appendChild(mensajeError);
+    } else if ((IngresoSaldo + SaldoActual) < 10) {
+      const mensajeError = document.createTextNode("El saldo actualizado debe ser mayor o igual a $10.");
+      const MensajeUsuario = document.getElementById("MontoAgregado");
+      MensajeUsuario.innerHTML = "";
+      MensajeUsuario.appendChild(mensajeError);
+    } else {
+      checkSaldo(IngresoSaldo, SaldoActual);
+    }
+}*/
+  
+  
+  
+  
 
 // Retirar Saldo
 function retirarSaldo () {
@@ -94,7 +128,7 @@ function inputSaldoRetiro () {
 }
 
 // Valida el monto ingresado.
-function checkSaldoRetirar (saldoIngresado) {
+/*function checkSaldoRetirar (saldoIngresado) {
     console.log (saldoIngresado);
     console.log (saldoActual);
     if ((saldoActual - saldoIngresado) < 10){
@@ -123,3 +157,4 @@ function mostrarTransacciónRetiro (saldoIngresado, saldoActual) {
 }
 
 //FUNCION PARA RETROCEDER
+*/
