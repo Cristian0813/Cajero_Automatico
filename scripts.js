@@ -4,8 +4,8 @@ var cuentas = [
     {nombre: "Gera", saldo: 290, password: 5678},
     {nombre: "Maui", saldo: 60, password: 9999}
 ];
-var SaldoActual = 0;
-
+let SaldoActual = 0;
+//INGRESO DE USUARIO Y CONTRASENHA
 function IngresoUsuarios() {
 const usuarioIngresado = document.getElementById("UsuarioIngresada").value;
 const claveIngresada = document.getElementById("ClaveIngresada").value;
@@ -44,76 +44,45 @@ function IngreseSaldo() {
     document.getElementById("SaldoAgregado").style.display = "inherit";
     document.getElementById("CajeroSaldo").style.display = "none";
 }
-//RECIBE EL SALDO QUE EL CLIENTE QUIERE AGREGAR 
 function checkSaldo(IngresoSaldo, SaldoActual) {
+    const usuarioIngresado = document.getElementById("UsuarioIngresada").value;
+    const mensajeUsuario = document.getElementById("SaldoMuyAlto");
     for (var i = 0; i < cuentas.length; i++) {
-      if (cuentas[i].nombre === "Mali") {
-        SaldoActual = cuentas[i].saldo;
-        break;
-      }else if (cuentas[i].nombre === "Gera") {
-        SaldoActual = cuentas[i].saldo;
-        break;
-      }else if (cuentas[i].nombre === "Muai") {
-        SaldoActual = cuentas[i].saldo;
-        break;
-      }
+        if (cuentas[i].nombre === usuarioIngresado) {
+            saldoUsuario = cuentas[i].saldo;
+            break;
+        }
     }
     if (IngresoSaldo < 10) {
-      const mensajeError = document.createTextNode("El saldo ingresado debe ser mayor o igual a $10.");
-      const MensajeUsuario = document.getElementById("SaldoMuyAlto");
-      MensajeUsuario.innerHTML = "";
-      MensajeUsuario.appendChild(mensajeError);
+        mensajeUsuario.innerHTML = "El saldo ingresado debe ser mayor o igual a $10.";
     } else if ((IngresoSaldo + SaldoActual) > 990) {
-      const mensajeError = document.createTextNode("Sobrepasa el monto permitido por el banco. Ingresa un valor inferior.");
-      const MensajeUsuario = document.getElementById("SaldoMuyAlto");
-      MensajeUsuario.innerHTML = "";
-      MensajeUsuario.appendChild(mensajeError);
+        mensajeUsuario.innerHTML = "Sobrepasa el monto permitido por el banco. Ingresa un valor inferior.";
     } else if ((IngresoSaldo + SaldoActual) < 10) {
-      const mensajeError = document.createTextNode("El saldo actualizado debe ser mayor o igual a $10.");
-      const MensajeUsuario = document.getElementById("MontoAgregado");
-      MensajeUsuario.innerHTML = "";
-      MensajeUsuario.appendChild(mensajeError);
+        mensajeUsuario.innerHTML = "El saldo actualizado debe ser mayor o igual a $10.";
     } else {
-      const MensajeConfirmacion = document.createTextNode("El saldo ha sido actualizado con éxito. Tu saldo actual es " + (IngresoSaldo + SaldoActual));
-      const MensajeUsuario = document.getElementById("MontoAgregado");
-      MensajeUsuario.innerHTML = "";
-      MensajeUsuario.appendChild(MensajeConfirmacion);
-      cuentas[i].saldo += IngresoSaldo;
+        const mensajeConfirmacion = "El saldo ha sido actualizado con éxito. "+ (cuentas[i].nombre) +" Tu saldo actual es "+  (cuentas[i].saldo += IngresoSaldo);
+        document.getElementById("MontoAgregado").innerHTML = mensajeConfirmacion;
+
     }
-  }
-  
-  function SaldoInput() {
-    const IngresoSaldo = parseInt(document.getElementById("AgregarSaldo").value);
-    checkSaldo(IngresoSaldo, SaldoActual);
-  }
+}
+function SaldoInput() {
+    const ingresoSaldo = parseInt(document.getElementById("AgregarSaldo").value);
+    checkSaldo(ingresoSaldo);
+    ingresoSaldo.innerHTML ="";
+}
 
+//FUNCIÓN PARA REGRESAR AL MENÚ ANTERIOR
+function Retoceder() {
+    document.getElementById("SaldoAgregado").style.display = "none";
+    document.getElementById("CajeroSaldo").style.display = "inherit";
+}
 
-
-/*function SaldoInput(IngresoSaldo) {
-const IngresoSaldo = parseInt(document.getElementById("AgregarSaldo").value);
-    if (IngresoSaldo < 10) {
-      const mensajeError = document.createTextNode("El saldo ingresado debe ser mayor o igual a $10.");
-      const MensajeUsuario = document.getElementById("SaldoMuyAlto");
-      mensajeUsuario.innerHTML = "";
-      mensajeUsuario.appendChild(mensajeError);
-    } else if ((IngresoSaldo + SaldoActual) > 990) {
-      const mensajeError = document.createTextNode("Sobrepasa el monto permitido por el banco. Ingresa un valor inferior.");
-      const mensajeUsuario = document.getElementById("SaldoMuyAlto");
-      mensajeUsuario.innerHTML = "";
-      mensajeUsuario.appendChild(mensajeError);
-    } else if ((IngresoSaldo + SaldoActual) < 10) {
-      const mensajeError = document.createTextNode("El saldo actualizado debe ser mayor o igual a $10.");
-      const MensajeUsuario = document.getElementById("MontoAgregado");
-      MensajeUsuario.innerHTML = "";
-      MensajeUsuario.appendChild(mensajeError);
-    } else {
-      checkSaldo(IngresoSaldo, SaldoActual);
-    }
-}*/
-  
-  
-  
-  
+//FUNCIÓN PARA CANCELAR LA OPERACIÓN
+function Cancelar() {
+    document.getElementById("SaldoAgregado").style.display = "none";
+    document.getElementById("CajeroSaldo").style.display = "inherit";
+    document.getElementById("AgregarSaldo").value = "";
+}
 
 // Retirar Saldo
 function retirarSaldo () {
@@ -154,7 +123,4 @@ function mostrarTransacciónRetiro (saldoIngresado, saldoActual) {
     const mostrarTotal = document.getElementById ("saldoTotalCliente");
     mostrarTotal.innerHTML = "";
     mostrarTotal.appendChild (dinerototal);
-}
-
-//FUNCION PARA RETROCEDER
-*/
+}*/
