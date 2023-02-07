@@ -1,14 +1,14 @@
 //Variables para ingreso a loaggin
-let Malisaldo = 200;
+/*let Malisaldo = 200;
 let Gerasaldo = 290;
-let Mauisaldo = 60;
+let Mauisaldo = 60;*/
+var cuentas = [
+    {nombre: "Mali", saldo:Malisaldo = 200, password: 1234},
+    {nombre: "Gera", saldo:Gerasaldo = 290, password: 5678},
+    {nombre: "Maui", saldo:Mauisaldo = 60, password: 9999}
+];
 
 function IngresoUsuarios() {
-var cuentas = [
-    {nombre: "Mali", saldo: Malisaldo, password: 1234},
-    {nombre: "Gera", saldo: Gerasaldo, password: 5678},
-    {nombre: "Maui", saldo: Mauisaldo, password: 9999}
-];
 const usuarioIngresado = document.getElementById("UsuarioIngresada").value;
 const claveIngresada = document.getElementById("claveIngresada").value;
 let usuarioEncontrado = false;
@@ -20,44 +20,27 @@ let usuarioEncontrado = false;
     }if (!usuarioEncontrado) {
         document.getElementById("ErrorMensaje").innerHTML = "Por favor ingrese un usuario y clave válidos";
     } else {
-        // Si los datos de usuario y clave son correctos, puedes mostrar el siguiente panel o hacer otra acción.
-        document.getElementById("bienvenida").style.display = "none";
+        document.getElementById("Bienvenida").style.display = "none";
         document.getElementById("CajeroSaldo").style.display = "block";
     }
 }
-//OCULTA LA PANTALLA DE INCIO Y SELECIONA LA CUENTA DE USUARIO
-function MaliUsuario () {
-    usuarioActual = "Mali";
-    saldoActual = Malisaldo;
-    passwordActual = 1234;
-    document.getElementById("loginUsuario").style.display = "none";
-    document.getElementById("claveUsuario").style.display = "inherit";
-}
-function GeraUsuario () {
-    usuarioActual = "Gera";
-    saldoActual = Gerasaldo;
-    passwordActual = 5678;
-    document.getElementById("loginUsuario").style.display = "none";
-    document.getElementById("claveUsuario").style.display = "inherit";
-}
-function Maui () {
-    usuarioActual = "Maui";
-    saldoActual = Gerasaldo;
-    passwordActual = 9999;
-    document.getElementById("loginUsuario").style.display = "none";
-    document.getElementById("claveUsuario").style.display = "inherit";
-}
-// Ver Saldo
-function SaldoExistente() {
-    document.getElementById("CajeroSaldo").style.display = "none";
+//VER EL SALDO QUE TIENE ACTUAL
+function verSaldo(){
     document.getElementById("SaldoActual").style.display = "inherit";
+    document.getElementById("CajeroSaldo").style.display = "none";
+    let saldoUsuario = 0;
+    const usuarioIngresado = document.getElementById("UsuarioIngresada").value;
 
-    const saldoUsuario = document.createTextNode (`$${saldoActual}`);
-    const mensajeSaldo = document.getElementById ("saldoCliente");
-    mensajeSaldo.innerHTML = "";
-    mensajeSaldo.appendChild(saldoUsuario);
+    for (let i = 0; i < cuentas.length; i++) {
+        if (cuentas[i].nombre === usuarioIngresado) {
+            saldoUsuario = cuentas[i].saldo;
+            break;
+        }
+    }
+    const mensajeSaldo = document.getElementById("SaldoUsuario");
+    mensajeSaldo.innerHTML = ""; 
+    mensajeSaldo.appendChild(document.createTextNode(`$${saldoUsuario}`));
 }
-
 // Ingresar Saldo
 function ingresarSaldo () {
     document.getElementById("CajeroSaldo").style.display = "none";
@@ -85,7 +68,7 @@ function checkSaldo (saldoIngresado) {
 // Muestra la pantalla con el saldo del cliente
 function mostrarTransacción (saldoIngresado, saldoActual) {
     document.getElementById("agregarSaldo").style.display = "none";
-    document.getElementById("saldoTotal").style.display = "inherit";
+    document.getElementById("SaldoTotal").style.display = "inherit";
 
     const dineroIngresado = document.createTextNode (`$${saldoIngresado}`);
     const mostrarDinero = document.getElementById("saldoIngresadoCliente");
@@ -126,7 +109,7 @@ function checkSaldoRetirar (saldoIngresado) {
 
 function mostrarTransacciónRetiro (saldoIngresado, saldoActual) {
     document.getElementById("retirarSaldo").style.display = "none";
-    document.getElementById("saldoTotal").style.display = "inherit";
+    document.getElementById("SaldoTotal").style.display = "inherit";
 
     const dineroIngresado = document.createTextNode (`$${saldoIngresado}`);
     const mostrarDinero = document.getElementById("saldoIngresadoCliente");
@@ -139,52 +122,4 @@ function mostrarTransacciónRetiro (saldoIngresado, saldoActual) {
     mostrarTotal.appendChild (dinerototal);
 }
 
-// ARROWS
-
-function backArrowLogin () {
-    document.getElementById("loginUsuario").style.display = "none";
-    document.getElementById("bienvenida").style.display = "inherit";
-}
-
-function backArrowClave () {
-    document.getElementById("claveUsuario").style.display = "none";
-    document.getElementById("loginUsuario").style.display = "inherit";
-}
-
-function backArrowOpciones () {
-    document.getElementById("CajeroSaldo").style.display = "none";
-    document.getElementById("claveUsuario").style.display = "inherit";
-}
-
-function backArrowSaldo () {
-    document.getElementById("verSaldo").style.display = "none";
-    document.getElementById("CajeroSaldo").style.display = "inherit";
-}
-
-function backArrowAgregar () {
-    document.getElementById("agregarSaldo").style.display = "none";
-    document.getElementById("CajeroSaldo").style.display = "inherit";
-}
-
-function backArrowRetirar () {
-    document.getElementById("retirarSaldo").style.display = "none";
-    document.getElementById("CajeroSaldo").style.display = "inherit";
-}
-
-function backArrowVerSaldo () {
-    document.getElementById("saldoTotal").style.display = "none";
-    document.getElementById("CajeroSaldo").style.display = "inherit";
-}
-
-// Funcion para ocultar la pantalla principal y mostar los usuarios.
-function ingresoUsuario () {
-    document.getElementById("bienvenida").style.display = "none";
-    document.getElementById("loginUsuario").style.display = "inherit";
-}
-// Function que recibe el valor del input de password y lo asigna a una variable. 
-// Se ejecuta la function checkConstraseña y se envía el valor del input de pass.
-function validacionClave () {
-
-    let inputContraseña = document.getElementById ("claveIngresada").value; 
-    checkContraseña (inputContraseña);
-}
+//FUNCION PARA RETROCEDER

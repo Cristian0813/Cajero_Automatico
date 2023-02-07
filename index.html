@@ -19,7 +19,7 @@
                 </div>
             <section class="CajeroAutomatico">
                 <h2>Bienvenido a la Banca Virtual</h2>
-                <section id="bienvenida" class="entrada">
+                <section id="Bienvenida" class="entrada">
                     <div class="Usuarios">
                         <div class="ClaveIngreso">
                             <input type="text" id="UsuarioIngresada" placeholder="Ingresa tu usuario" />
@@ -32,47 +32,51 @@
                     <a href="#" class="btn pepe" onclick="IngresoUsuarios()">Ingresar</a>
                 </section>
                 <!-- Ingreso al cajero de los usuarios -->
-                <section id="opcionesCajero">
+                <section id="CajeroSaldo">
                     <h3>¿Qué deseas hacer hoy?</h3>
                     <div class="botonesOpciones">
                         <a href="#" class="btn" onclick="verSaldo()">Ver saldo</a>
                         <a href="#" class="btn " onclick="ingresarSaldo ()">Ingresar saldo</a>
                         <a href="#" class="btn" onclick="retirarSaldo ()">Retirar saldo</a>
                     </div>
-                    <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
                 </section>
                 <!--VER SALDO -->
-                <section id="verSaldo">
+                <section id="SaldoActual">
                     <h3>Tu saldo actual es:</h3>
-                    <span id="saldoCliente"></span>
+                    <span id="SaldoUsuario"></span>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
                 </section>
-                <!-- OPCIONES CAJERO // AGREGAR SALDO -->
-                <section id="agregarSaldo">
+                <!--AGREGAR SALDO-->
+                <section id="SaldoAgregado">
                     <h2>¿Cuánto dineo quieres ingresar?</h2>
                     <div class="saldoDiferente">
-                        <input type="number" id="saldoIngresado" placeholder="Ingresa un monto diferente" />
+                        <input type="number" id="AgregarSaldo" placeholder="Ingresa un monto diferente" />
                         <a href="#" class="btn" onclick="inputSaldo ()">Ingresar saldo diferente</a>
+                        <a href="#" class="btn atras" id="arrowOpciones" onclick="Cancelar()">Cancelar</a>
                     </div>
                     <span class="mensajeError" id="alertaCupo"></span>
-                    <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
                 </section>
                 <!-- OPCIONES CAJERO // RETIRAR SALDO -->
-                <section id="retirarSaldo">
+                <section id="SaldoRetirado">
                     <h3>¿Cuánto dineo quieres retirar?</h3>
                     <div class="saldoDiferente">
                         <input type="number" id="saldoIngresadoRetirar" placeholder="Ingresa un monto diferente" />
                         <a href="#" class="btn" onclick="inputSaldoRetiro ()">Ingresar saldo diferente</a>
                     </div>
                     <span class="mensajeError" id="alertaCupoRetiro"></span>
-                    <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
                 </section>
-                <!-- OPCIONES CAJERO // VER SALDO INGRESADO  Y TOTAL-->
-                <section id="saldoTotal">
-                    <h2>Acabas de ingresar:</h2>
+                <!-- VER SALDO INGRESADO  Y TOTAL-->
+                <!---->
+                <section id="SaldoTotal">
+                    <h3>Acabas de ingresar:</h3>
                     <span id="saldoIngresadoCliente">$</span>
                     <h3>El total en tu cuenta es de:</h3>
                     <span id="saldoTotalCliente"></span>
-                    <a href="#" class="btn atras" id="arrowOpciones" onclick="backArrowOpciones()">Atras</a>
+                    <a href="#" class="btn atras" id="arrowOpciones" onclick="Retoceder()">Atras</a>
+                </section>
             </section>
             <script src="./scripts.js"></script>
         </body>
