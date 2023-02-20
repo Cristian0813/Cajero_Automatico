@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- METADATOS-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="© 2006 MDC">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="cyan">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+    <meta name="description" content="Banco Renacer ofrece una amplia gama de productos y servicios bancarios para satisfacer las necesidades financieras de sus clientes. Desde cuentas corrientes y de ahorro hasta préstamos personales y comerciales, nuestro equipo de expertos está disponible para brindar asistencia personalizada y acompañamiento en cada paso del camino. Además, ofrecemos servicios de banca en línea y móvil para una mayor comodidad y accesibilidad. ¡Únete a nosotros y descubre cómo podemos ayudarte a alcanzar tus objetivos financieros!">
+    <!-- BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../assets/favicon-apple-touch-icon.png">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto&display=swap" rel="stylesheet">
+    <!-- TITULO DEL HTML -->
+    <title>BCRN</title>               
+</head>
+<!-- SCRIPT DE JAVASCRIPT PARA DAR EL SALUDO -->
+<script>
+    window.onload = function() {
+    const mensajeBienvenida = document.getElementById("MensajeBienvenida");
+    mensajeBienvenida.innerText = "¡Bienvenida " + sessionStorage.getItem("usuarioActivo") + "!";
+    }
+</script>
+<body  class="body">
+    <!-- CABEZA DE LA PAGINA (HEADER) -->
+    <header class="fixed-top">
+        <!--SE CREA NAVEGADOR DE BARRA (NAVBAR)-->
+        <nav class="navbar fixed-top">
+            <div class="container">
+                <img src="../assets/favicon.png" alt="BancRenac" width="50" height="50">
+                <div class="tertiary navbar-expand-lg">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item ">
+                                    <a class="nav-link active font-weight-bold" href="../index.html">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="../html/sobreNosotros.html">Nosotros</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#ContactoDelBanco">Contactano</a>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-primary botoncerrarseccion" onclick="CerrarUsuario()">Cerrar sección</button>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- CUERPO DE LA PAGINA (MAIN) -->
+    <main class= "bd-masthead mb-3 mainseccion">
+         <!--TITULO-->
+        <h1 class="text-center" id="MensajeBienvenida"></h1>
+        <span id="MensajeError"></span>
+        <span id="AgregadoRetirado"></span>
+        <!-- SECCION PARA ELEGIR QUE DESEA REALIZAR -->
+        <section class="usuariovalores">
+            <section class="seccionelegir">
+                <h2>¿Qué consultas queires realizar hoy?</h2>
+                <button type="button" class="btn btn-light botonversaldo" onclick="VerSaldo()">Ver saldo</button>
+                <button type="button" class="btn btn-light botoningresarsaldo " onclick="IngreseSaldo()">Ingresar saldo</button>
+                <button type="button" class="btn btn-light botonretirarsaldo" onclick="RetirarSaldo()">Retirar saldo</button>
+            </section>
+            <!--VER SALDO -->
+            <section class="seccionver" id="SaldoActual">
+                <h3>Tu saldo actual es:</h3>
+                <span class="saldousuario" id="SaldoUsuario">$ </span>            <!-- <button type="button" class="btn btn-light botonatras" onclick="Retoceder()">Atras</button> -->
+            </section>
+            <!--AGREGAR SALDO-->
+            <section class="seccionagregar" id="SaldoAgregado">
+                <h3>¿Cuánto dinero quieres ingresar?</h3>
+                <span class="saldousuario2" id="SaldoUsuario2"></span>
+                <div class="saldoDiferente">
+                    <div class="inputs input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="AgregaSaldo">
+                    </div>
+                    <button type="button" class="btn btn-primary botoningresar" onclick="SaldoIngreso()">Ingresar saldo</button>
+                    <button class="botoncancelar" onclick="CancelarAccion()">Cancelar</button>
+                </div>
+            </section>
+            <!--SALDO RETIRADO-->
+            <section class="seccionretirar" id="SaldoRetirado">
+                <h3>¿Cuánto dinero quieres retirar?</h3>
+                <span class="saldousuario3" id="SaldoUsuario3"></span>
+                <div class="saldoDiferente"> 
+                    <div class="inputs input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="RetirarSaldo">
+                    </div>
+                    <button type="button" class="btn btn-primary botonretirarsalso" onclick="SaldoRetiro()">Retirar saldo</button>
+                    <button class="botoncancelar" onclick="CancelarAccion2()">Cancelar</button>
+                </div>            
+            </section>
+        </section>        
+    </main>
+    <!-- PIE DE LA PAGINA (FOOTER)  -->
+    <footer class="seccion-oscura" id="ContactoDelBanco">
+        <section>
+            <label>Author: Cristian Arias</label>
+        </section>
+        <section>
+            <a class="bi bi-envelope-fill" href="mailto:hege@example.com"> bancorenacer@example.com</a>
+        </section>
+        <!-- AGREGO TITULO FINAL DE INSPIRACIÓN -->
+    <div class="d-flex justify-content-end">
+        <figure class="text-end p-3">
+            <blockquote class="blockquote">
+            <p>No te preocupes por los fracasos, preocúpate por las<br>oportunidades que pierdes cuando ni siquiera lo intentas.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+            <cite title="Source Title">Jack Canfield</cite>
+            </figcaption>
+        </figure>
+    </div> 
+    </footer> 
+    <!-- GUIONES PARA LA CONTRUCCIÓN DE LA PÁGINA (SCRIPTS) -->
+    <script src="../script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

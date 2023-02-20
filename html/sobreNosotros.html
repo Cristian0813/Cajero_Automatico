@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- METADATOS-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="© 2006 MDC">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="cyan">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+    <meta name="description" content="Banco Renacer ofrece una amplia gama de productos y servicios bancarios para satisfacer las necesidades financieras de sus clientes. Desde cuentas corrientes y de ahorro hasta préstamos personales y comerciales, nuestro equipo de expertos está disponible para brindar asistencia personalizada y acompañamiento en cada paso del camino. Además, ofrecemos servicios de banca en línea y móvil para una mayor comodidad y accesibilidad. ¡Únete a nosotros y descubre cómo podemos ayudarte a alcanzar tus objetivos financieros!">
+    <!-- BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../assets/favicon-apple-touch-icon.png">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Roboto&display=swap" rel="stylesheet">
+    <!-- TITULO DEL HTML -->
+    <title>BCRN</title>               
+</head>
+<body  class="body">
+    <!-- CABEZA DE LA PAGINA (HEADER) -->
+    <header class="fixed-top">
+        <!--SE CREA NAVEGADOR DE BARRA (NAVBAR)-->
+        <nav class="navbar fixed-top">
+            <div class="container">
+                <img src="../assets/favicon.png" alt="BancRenac" width="50" height="50">
+                <div class="tertiary navbar-expand-lg">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item ">
+                                    <a class="nav-link active font-weight-bold" href="../index.html">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./sobreNosotros.html">Nosotros</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#ContactoDelBanco">Contactanos</a>
+                                </li>
+                            </ul>
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle text-uppercase bi bi-person-fill" id="UsuarioNombre" role="button" data-bs-toggle="dropdown" aria-expanded="false">ingresar</a>    
+                                <div class="dropdown-menu dropdown-menu-end p-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Ingresa tu Usuario</label>
+                                        <input type="text" class="form-control" id="UsuarioIngresar" placeholder="Usuario">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Ingresa tu Contraseña</label>
+                                        <input type="password" class="form-control" id="ContraseniaIngresar" placeholder="Contraseña">
+                                    </div>
+                                    <input type="button" value="Acceder" class="btn btn-primary" onclick="InicioUsuario()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="bd-masthead mb-3">
+        <!--TITULO-->
+        <h1 class="text-center">Sobre Nosotros</h1>
+        <!-- SECCION SOBRE NOSOTROS (SECTION) -->
+        <section class="nosotros" id="SobreNosotros">
+            <br>
+            <p>Banco Renacer es una institución financiera dedicada a brindar soluciones bancarias integrales y personalizadas a sus clientes. Nos esforzamos por ser un compañero fiel en el camino hacia el crecimiento y la renovación financiera de nuestros clientes.</p>
+            <p>Fundadada en el año 2000 por un grupo de expertos en finanzas con décadas de experiencia en el sector bancario, Banco Renacer se ha comprometido a ofrecer una amplia gama de productos y servicios financieros de alta calidad. Desde cuentas corrientes hasta préstamos y asesoramiento financiero, trabajamos incansablemente para ayudar a nuestros clientes a lograr sus metas financieras y a alcanzar un futuro más brillante.</p>
+            <p>Nuestro enfoque en la satisfacción del cliente y en ofrecer un servicio excepcional nos ha llevado a crear un equipo de profesionales altamente capacitados, apasionados y dedicados. Trabajamos juntos para brindar una experiencia bancaria superior y asegurarnos de que cada cliente se sienta valorado y respetado.</p>
+            <p>En Banco Renacer, creemos en la importancia de la renovación y el crecimiento, tanto personales como financieros. Nos enorgullece ser una parte importante de este viaje y estamos comprometidos a seguir brindando soluciones bancarias innovadoras y excepcionales a nuestros clientes. ¡Bienvenido a Banco Renacer!</p>
+        </section>     
+    </main>
+    <footer class="seccion-oscura" id="ContactoDelBanco">
+        <section>
+            <label>Author: Cristian Arias</label>
+        </section>
+        <section>
+            <a class="bi bi-envelope-fill" href="mailto:hege@example.com"> bancorenacer@example.com</a>
+        </section>
+        <!-- AGREGO TITULO FINAL DE INSPIRACIÓN -->
+    <div class="d-flex justify-content-end">
+        <figure class="text-end p-3">
+            <blockquote class="blockquote">
+            <p>No te preocupes por los fracasos, preocúpate por las<br>oportunidades que pierdes cuando ni siquiera lo intentas.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+            <cite title="Source Title">Jack Canfield</cite>
+            </figcaption>
+        </figure>
+    </div> 
+    </footer> 
+    <!-- GUIONES PARA LA CONTRUCCIÓN DE LA PÁGINA (SCRIPTS) -->
+    <script src="../script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
