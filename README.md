@@ -3,9 +3,8 @@
 <br>
 <h2>Actualizacion</h2>
 <p>Se actualiza la App cajero automático, cambiando el nombre como Banco Renacer, brindado una mejor experiencia, también se cambia por completo la interfaz respetando la adaptabilidad al usuario.</p>
-<br>
-<p>Para el ingreso se crea tres clientes con su clave</p>
-<p>Usuario: Mali Clave: 1234</p>
+<p>Se crea tres clientes con su clave, para la modificación de saldo.</p>
+<strong><p>Usuario: Mali Clave: 1234</p>
 <p>Usuario: Gera Clave: 5678</p>
 <p>Usuario: Maui Clave: 9999</p>
 <p>Se agregó nuevas imágenes, una sección de nosotros y pie de página donde se evidencia el contacto.</p>
