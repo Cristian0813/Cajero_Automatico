@@ -6,7 +6,7 @@
 <p>Se crea tres clientes con su clave, para la modificación de saldo.</p>
 <strong><p>Usuario: Mali Clave: 1234</p>
 <p>Usuario: Gera Clave: 5678</p>
-<p>Usuario: Maui Clave: 9999</p>
+<p>Usuario: Maui Clave: 9999</p></strong>
 <p>Se agregó nuevas imágenes, una sección de nosotros y pie de página donde se evidencia el contacto.</p>
 <br>
 <h2> Cajero Autómatico</h2>
