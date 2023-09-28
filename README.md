@@ -10,15 +10,15 @@
 <p>Se agregó nuevas imágenes, una sección de nosotros y pie de página donde se evidencia el contacto.</p>
 <br>
 <h2> Cajero Autómatico</h2>
-<a href="https://cristian0813.github.io/Cajero-automatico/"><img src="./assets/presentacion/CajeroAutomatico.jpg" width="auto" align="center">
+<a href="https://cristian0813.github.io/Cajero-automatico/" target="_blank"><img src="./assets/presentacion/CajeroAutomatico.jpg" width="auto" align="center">
 <br>
 <br>
 <br>
-<a href="https://cristian0813.github.io/Cajero-automatico/"><img src="./assets/presentacion/CajeroAutomatico2.jpg" width="auto" align="center">
+<a href="https://cristian0813.github.io/Cajero-automatico/"target="_blank" ><img src="./assets/presentacion/CajeroAutomatico2.jpg" width="auto" align="center">
 <br>
 <br>
 <br>
-<a href="https://cristian0813.github.io/Cajero-automatico/"><img src="./assets/presentacion/CajeroAutomatico3.jpg" width="auto" align="center">
+<a href="https://cristian0813.github.io/Cajero-automatico/" target="_blank" ><img src="./assets/presentacion/CajeroAutomatico3.jpg" width="auto" align="center">
 <br>
 <br>
 <br>
